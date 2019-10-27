@@ -1,5 +1,5 @@
 
-// Fonction appelée lors du click du bouton
+// Fonction appelée à la charge
 window.onload=function start() {
   // Création de l'objet apiWeather
   const apiWeather = new API_WEATHER();
@@ -29,6 +29,8 @@ window.onload=function start() {
       console.error(error);
     });
 }
+
+
 function actualiser() {
   const cityname = document.getElementById('city-input').value;
   alert(cityname);
@@ -60,12 +62,14 @@ function actualiser() {
       console.error(error);
     });
 }
+
+
 function threedays() {
   const cityname = document.getElementById('city-input').value;
   
   // Création de l'objet apiWeather
   const apiWeather = new API_WEATHER(cityname);
-  // Appel de la fonction fetchTodayForecast
+  // Appel de la fonction threedayforecast
 
   apiWeather
     .getThreeDayForecast()
@@ -87,13 +91,9 @@ function threedays() {
      
      //surlendemain
      const main2 = data.list[2].weather[0].main;
-      
-       const description_meteo2 = data.list[2].weather[0].description;
-      
-      const temp2 = (Math.round((data.list[2].temp.day) -273));
-     // const temp = data.list[0].temp[0].day;
-     // alert(temp);
-      const icon2 = apiWeather.getHTMLElementFromIcon(data.list[2].weather[0].icon);
+     const description_meteo2 = data.list[2].weather[0].description;
+     const temp2 = (Math.round((data.list[2].temp.day) -273)); 
+     const icon2 = apiWeather.getHTMLElementFromIcon(data.list[2].weather[0].icon);
       // Modifier le DOM
       document.getElementById('today-forecast-main3').innerHTML = main2;
       document.getElementById('today-forecast-more-info3').innerHTML = description_meteo2;
@@ -102,13 +102,9 @@ function threedays() {
 
       //toujours plus loin 
      const main3 = data.list[3].weather[0].main;
-      
-       const description_meteo3 = data.list[3].weather[0].description;
-      
-      const temp3 = (Math.round((data.list[3].temp.day) -273));
-     // const temp = data.list[0].temp[0].day;
-     // alert(temp);
-      const icon3 = apiWeather.getHTMLElementFromIcon(data.list[3].weather[0].icon);
+     const description_meteo3 = data.list[3].weather[0].description;
+     const temp3 = (Math.round((data.list[3].temp.day) -273));
+     const icon3 = apiWeather.getHTMLElementFromIcon(data.list[3].weather[0].icon);
       // Modifier le DOM
       document.getElementById('today-forecast-main4').innerHTML = main3;
       document.getElementById('today-forecast-more-info4').innerHTML = description_meteo3;
