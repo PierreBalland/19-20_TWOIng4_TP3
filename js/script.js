@@ -30,8 +30,10 @@ window.onload=function start() {
     });
 }
 function actualiser() {
+  const cityname = document.getElementById('city-input').value;
+  alert(cityname);
   // Création de l'objet apiWeather
-  const apiWeather = new API_WEATHER();
+  const apiWeather = new API_WEATHER(cityname);
   // Appel de la fonction fetchTodayForecast
 
   apiWeather
